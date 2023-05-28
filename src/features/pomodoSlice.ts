@@ -15,7 +15,7 @@ const initialState: PomodoState = {
   focusLength: 25,
   shortBreakLength: 5,
   longBreakLength: 15,
-  promodosUntilLongBreak: 2,
+  promodosUntilLongBreak: 4,
   promodosCompleted: 0,
   isPaused: true,
   isSettingsOpen: false,
@@ -67,8 +67,8 @@ export const pomodoSlice = createSlice({
       state.promodosUntilLongBreak = action.payload;
     },
 
-    setIsPausedTrue: state => {
-      state.isPaused = !state.isPaused;
+    setIsPausedTrue: (state, action) => {
+      state.isPaused = action.payload;
     },
 
     setIsSettingsOpen: (state, action) => {

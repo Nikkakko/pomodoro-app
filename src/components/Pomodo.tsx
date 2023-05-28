@@ -4,10 +4,10 @@ import Settings from './Settings';
 import { useAppSelector } from '../app/hooks';
 
 const Pomodo = () => {
-  const { isSettingsOpen } = useAppSelector(state => state.pomodo);
+  const { isSettingsOpen, mode } = useAppSelector(state => state.pomodo);
 
   return (
-    <S.Container>
+    <S.Container mode={mode}>
       <S.Wrapper>
         <Mode />
         <Time />

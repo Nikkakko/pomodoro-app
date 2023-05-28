@@ -28,9 +28,10 @@ const SettingsListComponent: React.FC = () => {
 
   const settingsList: SettingsListType[] = [
     {
-      title: 'Dark mode',
+      title: 'Auto resume timer',
       action: <Switch style={{ backgroundColor: 'rgba(0, 0, 0, 0.24)' }} />,
     },
+
     {
       title: 'Focus Length',
       action: (

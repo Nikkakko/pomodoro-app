@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
+import * as S from '../styles/styles';
 import styled from 'styled-components';
-import { useAppDispatch } from '../app/hooks';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { setIsSettingsOpen } from '../features/pomodoSlice';
 import { CloseIcon } from '../assets/svgs';
 import SettingsListComponent from './SettingLists';
 
 const Settings = () => {
+  const { mode } = useAppSelector(state => state.pomodo);
   const dispatch = useAppDispatch();
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -17,7 +19,7 @@ const Settings = () => {
 
   return (
     <OverlayWrapper ref={modalRef} onClick={e => handleClose(e)}>
-      <Wrapper>
+      <S.ModalWrapper mode={mode}>
         <Heading>
           <HeadingTitle>Settings</HeadingTitle>
           <HeadingImg
@@ -27,10 +29,8 @@ const Settings = () => {
           />
         </Heading>
 
-        <div>
-          <SettingsListComponent />
-        </div>
-      </Wrapper>
+        <SettingsListComponent />
+      </S.ModalWrapper>
     </OverlayWrapper>
   );
 };
@@ -50,23 +50,6 @@ const OverlayWrapper = styled.div`
   justify-content: center;
 
   z-index: 1;
-`;
-
-const Wrapper = styled.div`
-  width: 448px;
-  height: 610px;
-
-  padding: 27px 24px;
-  /* Red/50
-
-Red/50
-*/
-  background: #fff2f2;
-  /* Shadow */
-
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.039),
-    0px 5.5px 16px rgba(0, 0, 0, 0.19);
-  border-radius: 24px;
 `;
 
 const Heading = styled.div`

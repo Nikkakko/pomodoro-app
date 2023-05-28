@@ -55,7 +55,7 @@ export const useCountdown = () => {
           dispatch(setMode('focus'));
           dispatch(setPromodosCompleted(-promodosUntilLongBreak));
         }
-        dispatch(setIsPausedTrue());
+        dispatch(setIsPausedTrue(false));
         return;
       }
 

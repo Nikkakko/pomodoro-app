@@ -1,43 +1,38 @@
 import styled from 'styled-components';
+import * as S from '../styles/styles';
 import { brainLogo, coffeLogo } from '../assets';
 import { useAppSelector } from '../app/hooks';
 
 const Mode = () => {
   const { mode } = useAppSelector(state => state.pomodo);
   return (
-    <ModeContainer>
+    <S.ModeContainer mode={mode}>
       {mode === 'focus' ? (
         <img src={brainLogo} alt='brain logo' />
       ) : (
         <img src={coffeLogo} alt='coffe logo' />
       )}
 
-      <ModeText>{mode}</ModeText>
-    </ModeContainer>
+      <ModeText mode={mode}>{mode}</ModeText>
+    </S.ModeContainer>
   );
 };
 
-const ModeContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  padding: 8px 16px;
-  gap: 8px;
-
-  height: 48px;
-
-  border: 2px solid #471515;
-  border-radius: 9999px;
-`;
-
-const ModeText = styled.p`
+const ModeText = styled.p<{
+  mode: string;
+}>`
   font-weight: 500;
   font-size: 24px;
   line-height: 28px;
   text-align: center;
   text-transform: capitalize;
 
-  color: #471515;
+  color: ${({ mode }) =>
+    mode === 'focus'
+      ? '#471515'
+      : mode === 'short break'
+      ? '#14401D'
+      : '#153047'};
 `;
 
 export default Mode;
