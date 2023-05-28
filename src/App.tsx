@@ -1,7 +1,7 @@
-import React from 'react';
+import Pomodo from './components/Pomodo';
 
 const App = () => {
-  return <div>App</div>;
+  return <Pomodo />;
 };
 
 export default App;
