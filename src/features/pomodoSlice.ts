@@ -28,7 +28,7 @@ export const pomodoSlice = createSlice({
   reducers: {
     setFocusLength: (state, action) => {
       if (action.payload < 1) {
-        state.focusLength = 0;
+        state.focusLength = 1;
         return;
       }
 

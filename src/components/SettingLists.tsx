@@ -1,4 +1,3 @@
-import { Switch } from 'antd';
 import SettingsItem from './SettingsItem';
 import { useSelector } from 'react-redux';
 import React from 'react';
@@ -27,11 +26,6 @@ const SettingsListComponent: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const settingsList: SettingsListType[] = [
-    {
-      title: 'Auto resume timer',
-      action: <Switch style={{ backgroundColor: 'rgba(0, 0, 0, 0.24)' }} />,
-    },
-
     {
       title: 'Focus Length',
       action: (
